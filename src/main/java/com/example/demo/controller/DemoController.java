@@ -28,7 +28,7 @@ public class DemoController {
     @GetMapping("/oneguy")
     public Guy specialGuy(){
         var o = new Guy();
-            o.setGuyName("SPECIAL");
+            o.setGuyName("SPECIAL SOMEONE");
             o.setGuyJoinDate(LocalDateTime.now());
         return o;
     }
