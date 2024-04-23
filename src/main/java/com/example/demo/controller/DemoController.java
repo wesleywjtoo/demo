@@ -25,4 +25,11 @@ public class DemoController {
         return rsList;
     }
 
+    @GetMapping("/oneguy")
+    public Guy specialGuy(){
+        var o = new Guy();
+            o.setGuyName("SPECIAL");
+            o.setGuyJoinDate(LocalDateTime.now());
+        return o;
+    }
 }
