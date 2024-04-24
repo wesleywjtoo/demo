@@ -35,7 +35,7 @@ public class DemoController {
     }
 
     @GetMapping("/whichguy")
-    public Guy whichGuy(@PathVariable("guyname") String guyName){
+    public Guy getWhichGuy(@PathVariable("guyname") String guyName){
         var o = new Guy();
         o.setGuyName(guyName);
         o.setGuyJoinDate(LocalDateTime.now());
