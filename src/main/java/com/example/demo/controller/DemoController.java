@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Guy;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,14 @@ public class DemoController {
         var o = new Guy();
             o.setGuyName("SPECIAL SOMEONE");
             o.setGuyJoinDate(LocalDateTime.now());
+        return o;
+    }
+
+    @GetMapping("/whichguy")
+    public Guy whichGuy(@PathVariable("guyname") String guyName){
+        var o = new Guy();
+        o.setGuyName(guyName);
+        o.setGuyJoinDate(LocalDateTime.now());
         return o;
     }
 }
