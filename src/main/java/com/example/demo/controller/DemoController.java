@@ -34,7 +34,7 @@ public class DemoController {
         return o;
     }
 
-    @GetMapping("/whichguy")
+    @GetMapping("/whichguy/{guyname}")
     public Guy getWhichGuy(@PathVariable("guyname") String guyName){
         var o = new Guy();
         o.setGuyName(guyName);
