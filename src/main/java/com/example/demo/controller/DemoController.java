@@ -15,6 +15,7 @@ import java.util.List;
 public class DemoController {
     @GetMapping("/guy")
     public List<Guy> getAllTheGuys(){
+        System.out.println("/guy called");
         List<Guy> rsList = new ArrayList<>();
         String[] guys = {"Biacht","Shoot","MundleBundle","Liang","John"};
         for(var x : guys){
@@ -28,6 +29,7 @@ public class DemoController {
 
     @GetMapping("/oneguy")
     public Guy specialGuy(){
+        System.out.println("/oneguy called");
         var o = new Guy();
             o.setGuyName("SPECIAL SOMEONE");
             o.setGuyJoinDate(LocalDateTime.now());
@@ -36,6 +38,7 @@ public class DemoController {
 
     @GetMapping("/whichguy")
     public Guy getWhichGuy(){
+        System.out.println("/whichguy called");
         var o = new Guy();
         o.setGuyName("THIS GUY LA");
         o.setGuyJoinDate(LocalDateTime.now());
