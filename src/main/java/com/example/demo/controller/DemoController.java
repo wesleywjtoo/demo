@@ -34,7 +34,7 @@ public class DemoController {
         return o;
     }
 
-    @GetMapping("/whichguy/")
+    @GetMapping("/whichguy")
     public Guy getWhichGuy(){
         var o = new Guy();
         o.setGuyName("THIS GUY LA");
