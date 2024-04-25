@@ -34,10 +34,10 @@ public class DemoController {
         return o;
     }
 
-    @GetMapping("/whichguy/{guyname}")
-    public Guy getWhichGuy(@PathVariable("guyname") String guyName){
+    @GetMapping("/whichguy/")
+    public Guy getWhichGuy(){
         var o = new Guy();
-        o.setGuyName(guyName);
+        o.setGuyName("THIS GUY LA");
         o.setGuyJoinDate(LocalDateTime.now());
         return o;
     }
