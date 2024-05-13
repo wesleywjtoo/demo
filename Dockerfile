@@ -18,18 +18,29 @@ RUN mvn -B clean package -DskipTests
 
 FROM default-route-openshift-image-registry.apps.sandbox-m2.ll9k.p1.openshiftapps.com/openshift/jboss-eap74-openjdk11-openshift:7.4.0
 
+# Create module directories
+RUN mkdir -p /opt/eap/modules/system/layers/base/org/postgresql/main
+
+COPY ./postgresql-42.7.3.jar /opt/eap/modules/system/layers/base/org/postgresql/main/postgresql-42.7.3.jar
+
+COPY ./module.xml /opt/eap/modules/system/layers/base/org/postgresql/main/module.xml
+
+# Configure permissions and ownership
+RUN chmod 644 /opt/eap/modules/system/layers/base/org/postgresql/main/*.jar
+RUN chown -R jboss:0 /opt/eap/modules
+
 # Set the working directory
 WORKDIR /opt/eap
 
 # Add a management user (adjust username and password)
-RUN /opt/eap/bin/add-user.sh admin Admin#20240101 --silent
+RUN /opt/eap/bin/add-user.sh wesleywj2 wesleywj2 --silent
 
 
 # Add the PostgreSQL driver module
-ADD ./postgresql-42.7.3.jar /opt/eap/modules/system/layers/base/org/postgresql/main/postgresql-42.7.3.jar
+# ADD
 
 # Add module.xml
-ADD ./module.xml /opt/eap/modules/system/layers/base/org/postgresql/main/module.xml
+# ADD ./module.xml /opt/eap/modules/system/layers/base/org/postgresql/main/module.xml
 
 # Configure WildFly/JBoss
 # RUN /opt/jboss/wildfly/bin/jboss-cli.sh --commands="embed-server,/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)"
