@@ -160,7 +160,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:/demoDs" pool-name="demoDs">
-                    <connection-url>jdbc:postgresql://postgres:5432/testdb</connection-url>
+                    <connection-url>jdbc:postgresql://postgresql:5432/testdb</connection-url>
                     <driver>postgresql</driver>
                     <security>
                         <user-name>wesleywj2</user-name>
