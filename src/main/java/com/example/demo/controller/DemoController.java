@@ -45,7 +45,7 @@ public class DemoController {
         log.error("oneguy Called-----------------------------");
         log.debug("oneguy Called-----------------------------");
         var o = new Guy();
-            o.setGuyName("KEANU REEVES");
+            o.setGuyName("Arnold Schwarzenegger");
             o.setGuyJoinDate(LocalDateTime.now());
         return o;
     }
