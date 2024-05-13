@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Guy;
+import com.example.demo.svc.GuyService;
+import com.example.demo.svc.SpService;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,15 @@ import org.slf4j.Logger;
 public class DemoController {
     public static final Logger log = LoggerFactory.getLogger(DemoController.class.getName());
 
+    private SpService spService;
+
+    private GuyService guyService;
+
+    public DemoController(SpService spService, GuyService guyService){
+        this.spService = spService;
+        this.guyService = guyService;
+    }
+
     @GetMapping("/guy")
     public List<Guy> getAllTheGuys(){
         log.info("guy Called-----------------------------");
@@ -23,20 +34,13 @@ public class DemoController {
         log.error("guy Called-----------------------------");
         log.debug("guy Called-----------------------------");
         List<Guy> rsList = new ArrayList<>();
-        String[] guys = {"Biacht","Shoot","MundleBundle","Liang","John"};
-        for(var x : guys){
-            var o = new Guy();
-            o.setGuyName(x);
-            o.setGuyJoinDate(LocalDateTime.now());
-            rsList.add(o);
-
-        }
+        rsList = guyService.getAllGuys();
         return rsList;
     }
 
     @GetMapping("/oneguy")
     public Guy specialGuy(){
-        log.info("oneguy Called-----------------------------");
+        log.info("oneguy Called-----------------------------" + spService.getUserFromSp());
         log.warn("oneguy Called-----------------------------");
         log.error("oneguy Called-----------------------------");
         log.debug("oneguy Called-----------------------------");

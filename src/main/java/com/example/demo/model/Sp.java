@@ -7,13 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Data
-public class Guy {
+public class Sp {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long guyId;
-    private String guyName;
-    private LocalDateTime guyJoinDate;
+    private UUID spId;
+
+    private String spCode;
+    private String spName;
+    private LocalDateTime joinDate;
 }
