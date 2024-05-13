@@ -35,7 +35,7 @@ ADD ./module.xml /opt/eap/modules/system/layers/base/org/postgresql/main/module.
 # RUN /opt/jboss/wildfly/bin/jboss-cli.sh --commands="embed-server,/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)"
 
 # Copy the custom standalone.xml
-COPY jboss74-standalone.xml /opt/eap/standalone/configuration/standalone.xml
+COPY standalone-openshift.xml /opt/eap/standalone/configuration/standalone-openshift.xml
 
 
 # Set environment variables for WildFly configuration
