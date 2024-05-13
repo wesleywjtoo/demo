@@ -17,7 +17,7 @@ COPY src ./src
 RUN mvn -B clean package -DskipTests
 
 # Use a base WildFly image
-FROM quay.io/wildfly/wildfly:latest-jdk11
+FROM quay.io/wildfly/wildfly:25.0.0.Final
 
 # Add a management user (adjust username and password)
 RUN /opt/jboss/wildfly/bin/add-user.sh wesleywj2 wesleywj2 --silent
