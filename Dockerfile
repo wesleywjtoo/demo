@@ -19,7 +19,7 @@ RUN mvn -B clean package -DskipTests
 # Use a base WildFly image
 # FROM jboss/wildfly:23.0.0.Final
 
-FROM default-route-openshift-image-registry.apps.sandbox-m2.ll9k.p1.openshiftapps.com/openshift/jboss-eap74-openjdk11-openshift:latest
+FROM default-route-openshift-image-registry.apps.sandbox-m2.ll9k.p1.openshiftapps.com/openshift/jboss-eap74-openjdk11-openshift:7.4.0
 
 # Add a management user (adjust username and password)
 RUN /opt/jboss/wildfly/bin/add-user.sh admin Admin#20240101 --silent
