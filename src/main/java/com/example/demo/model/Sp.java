@@ -18,5 +18,5 @@ public class Sp {
 
     private String spCode;
     private String spName;
-    private LocalDateTime joinDate;
+    private LocalDateTime dateJoin;
 }
